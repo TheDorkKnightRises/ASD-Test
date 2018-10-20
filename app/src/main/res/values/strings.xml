@@ -29,5 +29,8 @@
     <string name="submit">Submit</string>
     <string name="invalid_input_prompt">Please answer all the questions</string>
     <string name="subject_user">Who is taking this test on behalf of the subject?</string>
+    <string name="please_wait">Please wait</string>
+    <string name="debug_server_prompt">Set the URL for the server here</string>
+    <string name="apply">Apply</string>
 
 </resources>

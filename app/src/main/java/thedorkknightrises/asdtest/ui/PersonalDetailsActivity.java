@@ -1,9 +1,8 @@
-package thedorkknightrises.asdtest;
+package thedorkknightrises.asdtest.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -11,6 +10,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import thedorkknightrises.asdtest.R;
 
 public class PersonalDetailsActivity extends AppCompatActivity {
 
@@ -109,9 +110,6 @@ public class PersonalDetailsActivity extends AppCompatActivity {
                 extras.putString("ethnicity", ethnicity_spinner.getSelectedItem().toString());
                 extras.putString("country", country_spinner.getSelectedItem().toString());
                 extras.putString("user", user_spinner.getSelectedItem().toString());
-
-                Log.e("ethnicity", ethnicity_spinner.getSelectedItem().toString());
-                Log.e("country", country_spinner.getSelectedItem().toString());
 
                 Intent intent = new Intent(PersonalDetailsActivity.this, TestActivity.class);
                 intent.putExtras(extras);
