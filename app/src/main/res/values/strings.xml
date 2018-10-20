@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ASD Test</string>
+    <string name="get_started">Get Started</string>
+    <string name="intro_text">This test is designed to give a preliminary idea whether the person taking it is afflicted by Autistic Spectrum Disorders</string>
+    <string name="age">Age</string>
+    <string name="agree">Agree</string>
+    <string name="disagree">Disagree</string>
+    <string name="q1">I often notice small sounds when others do not</string>
+    <string name="q2">I usually concentrate more on the whole picture, rather than the samll details</string>
+    <string name="q3">I find it easy to do more than one thing at a time</string>
+    <string name="q4">If there was an interruption, I can switch back to what I was doing very quickly</string>
+    <string name="q5">I find it easy to read between the lines when someone is talking to me</string>
+    <string name="q6">I know how to tell if someone listening to me is getting bored</string>
+    <string name="q7">When I\'m reading a story I find it difficult to work out the characters\' intentions</string>
+    <string name="q8">I like to collect information about categories of things (e.g. types of cars, birds, trains, plants etc)</string>
+    <string name="q9">I find it easy to work out what someone is thinking or feeling just by looking at their face</string>
+    <string name="q10">I find it difficult to work out people\'s intentions</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="input_age">Please input age of subject</string>
+    <string name="subject_gender">Subject\'s gender</string>
+    <string name="subject_ethnicity">Subject\'s ethnicity</string>
+    <string name="subject_jaundice">Was the subject born with jaundice?</string>
+    <string name="family_autism">Has anyone in the subject\'s immediate family been diagnosed with autism?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
