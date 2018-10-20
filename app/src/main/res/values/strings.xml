@@ -6,7 +6,7 @@
     <string name="agree">Agree</string>
     <string name="disagree">Disagree</string>
     <string name="q1">I often notice small sounds when others do not</string>
-    <string name="q2">I usually concentrate more on the whole picture, rather than the samll details</string>
+    <string name="q2">I usually concentrate more on the whole picture, rather than the small details</string>
     <string name="q3">I find it easy to do more than one thing at a time</string>
     <string name="q4">If there was an interruption, I can switch back to what I was doing very quickly</string>
     <string name="q5">I find it easy to read between the lines when someone is talking to me</string>
@@ -24,4 +24,10 @@
     <string name="family_autism">Has anyone in the subject\'s immediate family been diagnosed with autism?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="subject_country">Country of residence</string>
+    <string name="begin_test">Begin Test</string>
+    <string name="submit">Submit</string>
+    <string name="invalid_input_prompt">Please answer all the questions</string>
+    <string name="subject_user">Who is taking this test on behalf of the subject?</string>
+
 </resources>
