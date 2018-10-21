@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -113,7 +112,8 @@ public class TestActivity extends AppCompatActivity {
 
             if (!error) {
                 ProgressDialog progressDialog = new ProgressDialog(TestActivity.this);
-                RestClient.post("asdtest", null, params, new JsonHttpResponseHandler() {
+                String path = "asdtest";
+                RestClient.get(path, null, params, new JsonHttpResponseHandler() {
                     @Override
                     public void onStart() {
                         super.onStart();
@@ -121,7 +121,7 @@ public class TestActivity extends AppCompatActivity {
                         progressDialog.setMessage(getString(R.string.please_wait));
                         progressDialog.show();
 
-                        Log.d("URL", RestClient.getBaseUrl());
+                        Toast.makeText(TestActivity.this, RestClient.getBaseUrl() + path, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

@@ -3,6 +3,7 @@ package thedorkknightrises.asdtest.ui;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import thedorkknightrises.asdtest.R;
 import thedorkknightrises.asdtest.util.RestClient;
@@ -19,6 +20,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             if (!"".equals(url)) {
                 RestClient.setBaseUrl(url);
                 getPreferences(MODE_PRIVATE).edit().putString("debug_server_url", url).apply();
+                Toast.makeText(this, "Applied", Toast.LENGTH_SHORT).show();
             }
         });
     }
