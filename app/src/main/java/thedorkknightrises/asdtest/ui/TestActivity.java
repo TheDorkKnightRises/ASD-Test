@@ -39,6 +39,7 @@ public class TestActivity extends AppCompatActivity {
             params.put("country", details.getString("country"));
             params.put("ethnicity", details.getString("ethnicity"));
             params.put("user", details.getString("user"));
+            params.put("used_app_before", details.getInt("used_app_before"));
         }
 
         q1_rg = findViewById(R.id.radio_group_q1);

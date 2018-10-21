@@ -34,7 +34,7 @@ public class PersonalDetailsActivity extends AppCompatActivity {
 
     EditText age_edittext;
     Spinner ethnicity_spinner, country_spinner, user_spinner;
-    RadioGroup gender_rg, jaundice_rg, family_autism_rg;
+    RadioGroup gender_rg, jaundice_rg, family_autism_rg, used_app_before_rg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,7 @@ public class PersonalDetailsActivity extends AppCompatActivity {
         gender_rg = findViewById(R.id.radio_group_gender);
         jaundice_rg = findViewById(R.id.radio_group_jaundice);
         family_autism_rg = findViewById(R.id.radio_group_family_autism);
+        used_app_before_rg = findViewById(R.id.radio_group_used_app_before);
 
         ethnicity_spinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, ethnicities));
         country_spinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, countries));
@@ -103,6 +104,20 @@ public class PersonalDetailsActivity extends AppCompatActivity {
                 header.setError(null);
                 RadioButton selectedItem = findViewById(gender_rg.getCheckedRadioButtonId());
                 extras.putInt("family_autism",
+                        (selectedItem.getText().toString().equals(getString(R.string.yes))) ? 1 : 0);
+            }
+
+            if (used_app_before_rg.getCheckedRadioButtonId() == -1) {
+                error = true;
+                TextView header = findViewById(R.id.text_used_app_before);
+                header.setError(getString(R.string.invalid_input_prompt));
+                header.requestFocus();
+                Toast.makeText(this, R.string.invalid_input_prompt, Toast.LENGTH_SHORT).show();
+            } else {
+                TextView header = findViewById(R.id.text_used_app_before);
+                header.setError(null);
+                RadioButton selectedItem = findViewById(used_app_before_rg.getCheckedRadioButtonId());
+                extras.putInt("used_app_before",
                         (selectedItem.getText().toString().equals(getString(R.string.yes))) ? 1 : 0);
             }
 
