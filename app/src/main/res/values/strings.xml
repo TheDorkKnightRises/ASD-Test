@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ASD Test</string>
     <string name="get_started">Get Started</string>
-    <string name="intro_text">This test is designed to give a preliminary idea whether the person taking it is afflicted by Autistic Spectrum Disorders</string>
+    <string name="intro_text">This test is designed to give a preliminary idea whether the person taking it is afflicted by Autism or Autistic Spectrum Disorders</string>
     <string name="age">Age</string>
     <string name="agree">Agree</string>
     <string name="disagree">Disagree</string>
@@ -42,6 +42,9 @@
     <string name="q_self_injurious_behavior">Subject has a tendency towards exhibiting self injurious behavior</string>
     <string name="q_shared_enjoyment">Subject gains shared enjoyment in interactions with others</string>
     <string name="q_tantrums">Subject tends to throw tantrums and exhibits aggression and disruptive behavior</string>
-    <string name="q_eye_contact">Subject tends to make unusual eye contact (either too much or no eye contact)</string>
+    <string name="q_eye_contact">Subject tends to make unusual (either too much or too little) eye contact</string>
+    <string name="configuration">Configuration</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="questionnaire">Questionnaire</string>
 
 </resources>

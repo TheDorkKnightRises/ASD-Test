@@ -20,10 +20,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ASDTestActivity" />
-        <activity android:name=".ui.PersonalDetailsActivity" />
-        <activity android:name=".ui.ConfigurationActivity" />
-        <activity android:name=".ui.AutismTestActivity"></activity>
+        <activity
+            android:name=".ui.ASDTestActivity"
+            android:label="@string/questionnaire" />
+        <activity
+            android:name=".ui.PersonalDetailsActivity"
+            android:label="@string/personal_details" />
+        <activity
+            android:name=".ui.ConfigurationActivity"
+            android:label="@string/configuration" />
+        <activity
+            android:name=".ui.AutismTestActivity"
+            android:label="@string/questionnaire" />
     </application>
 
 </manifest>
