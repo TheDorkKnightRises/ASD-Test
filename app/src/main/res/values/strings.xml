@@ -46,5 +46,11 @@
     <string name="configuration">Configuration</string>
     <string name="personal_details">Personal Details</string>
     <string name="questionnaire">Questionnaire</string>
+    <string name="autism_positive">Based on the results of the test, the subject exhibits signs of suffering from Autism.\n\nSee https://www.nhs.uk/conditions/autism/treatment for help dealing with such disorders.</string>
+    <string name="autism_negative">No signs of autism detected as per this test. Would you like to test for Autistic Spectrum Disorders?</string>
+    <string name="asd_positive">Based on the results of the test, the subject exhibits signs of suffering from Autistic Spectrum Disorders.\n\nSee https://www.nhs.uk/conditions/autism/treatment for help dealing with such disorders.</string>
+    <string name="asd_negative">No signs of Autistic Spectrum Disorders detected as per this test.</string>
+    <string name="exit">Exit</string>
+    <string name="cont">Continue</string>
 
 </resources>

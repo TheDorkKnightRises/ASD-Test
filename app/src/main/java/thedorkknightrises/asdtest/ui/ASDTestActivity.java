@@ -1,17 +1,20 @@
 package thedorkknightrises.asdtest.ui;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-
-import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 import thedorkknightrises.asdtest.R;
@@ -114,60 +117,70 @@ public class ASDTestActivity extends AppCompatActivity {
             if (!error) {
                 ProgressDialog progressDialog = new ProgressDialog(ASDTestActivity.this);
                 String path = "asdtest";
-                RestClient.get(path, null, params, new JsonHttpResponseHandler() {
+                RestClient.post(path, null, params, new JsonHttpResponseHandler() {
                     @Override
                     public void onStart() {
                         super.onStart();
                         progressDialog.setCancelable(false);
                         progressDialog.setMessage(getString(R.string.please_wait));
                         progressDialog.show();
-
-                        Toast.makeText(ASDTestActivity.this, RestClient.getBaseUrl() + path, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, String response) {
-                        super.onSuccess(statusCode, headers, response);
-
                         progressDialog.dismiss();
-                        Toast.makeText(ASDTestActivity.this,
-                                (response != null) ? response : "No response from server",
-                                Toast.LENGTH_SHORT).show();
-                        // parse and show the results
-                    }
+                        if (response == null) {
+                            Toast.makeText(ASDTestActivity.this,
+                                    "No response from server",
+                                    Toast.LENGTH_SHORT).show();
+                            return;
+                        }
 
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        super.onSuccess(statusCode, headers, response);
+                        final TextView message = new TextView(ASDTestActivity.this);
+                        final SpannableString s =
+                                new SpannableString((response.equals("true")) ? getText(R.string.asd_positive) : (response.equals("false")) ? getText(R.string.asd_negative) : response);
+                        Linkify.addLinks(s, Linkify.WEB_URLS);
+                        message.setText(s);
+                        message.setPadding(32, 32, 32, 32);
+                        message.setMovementMethod(LinkMovementMethod.getInstance());
 
-                        progressDialog.dismiss();
-                        Toast.makeText(ASDTestActivity.this,
-                                (response != null) ? response.toString() : "No response from server",
-                                Toast.LENGTH_SHORT).show();
-                        // parse and show the results
+                        new AlertDialog.Builder(ASDTestActivity.this)
+                                .setView(message)
+                                .setNegativeButton(R.string.exit, (dialog, which) -> {
+                                    finishAffinity();
+                                })
+                                .setCancelable(false)
+                                .show();
+
                     }
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, String response, Throwable throwable) {
-                        super.onFailure(statusCode, headers, response, throwable);
-
                         progressDialog.dismiss();
-                        Toast.makeText(ASDTestActivity.this,
-                                (response != null) ? response : "No response from server",
-                                Toast.LENGTH_SHORT).show();
-                        // parse and show the results
+                        if (response == null) {
+                            Toast.makeText(ASDTestActivity.this,
+                                    "No response from server",
+                                    Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        final TextView message = new TextView(ASDTestActivity.this);
+                        final SpannableString s =
+                                new SpannableString((response.equals("true")) ? getText(R.string.asd_positive) : (response.equals("false")) ? getText(R.string.asd_negative) : response);
+                        Linkify.addLinks(s, Linkify.WEB_URLS);
+                        message.setText(s);
+                        message.setPadding(32, 32, 32, 32);
+                        message.setMovementMethod(LinkMovementMethod.getInstance());
+
+                        new AlertDialog.Builder(ASDTestActivity.this)
+                                .setView(message)
+                                .setNegativeButton(R.string.exit, (dialog, which) -> {
+                                    finishAffinity();
+                                })
+                                .setCancelable(false)
+                                .show();
                     }
 
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject response) {
-                        super.onFailure(statusCode, headers, throwable, response);
-
-                        progressDialog.dismiss();
-                        Toast.makeText(ASDTestActivity.this,
-                                (response != null) ? response.toString() : "No response from server",
-                                Toast.LENGTH_SHORT).show();
-                        // parse and show the results
-                    }
                 });
             }
         });
