@@ -2,8 +2,8 @@ package thedorkknightrises.asdtest.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -54,7 +54,7 @@ public class AutismTestActivity extends AppCompatActivity {
         q_anxiety_seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                anxiety_value.setText(String.valueOf(progress+1));
+                anxiety_value.setText(String.valueOf(progress + 1));
             }
 
             @Override
