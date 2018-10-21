@@ -126,7 +126,7 @@ public class PersonalDetailsActivity extends AppCompatActivity {
                 extras.putString("country", country_spinner.getSelectedItem().toString());
                 extras.putString("user", user_spinner.getSelectedItem().toString());
 
-                Intent intent = new Intent(PersonalDetailsActivity.this, TestActivity.class);
+                Intent intent = new Intent(PersonalDetailsActivity.this, AutismTestActivity.class);
                 intent.putExtras(extras);
                 startActivity(intent);
             }

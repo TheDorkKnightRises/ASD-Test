@@ -17,14 +17,14 @@ import cz.msebera.android.httpclient.Header;
 import thedorkknightrises.asdtest.R;
 import thedorkknightrises.asdtest.util.RestClient;
 
-public class TestActivity extends AppCompatActivity {
+public class ASDTestActivity extends AppCompatActivity {
 
     RadioGroup q1_rg, q2_rg, q3_rg, q4_rg, q5_rg, q6_rg, q7_rg, q8_rg, q9_rg, q10_rg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_asd_test);
 
         RequestParams params = new RequestParams();
         Bundle details = getIntent().getExtras();
@@ -54,7 +54,7 @@ public class TestActivity extends AppCompatActivity {
         q10_rg = findViewById(R.id.radio_group_q10);
 
         findViewById(R.id.startButton).setOnLongClickListener((view) -> {
-            startActivity(new Intent(TestActivity.this, ConfigurationActivity.class));
+            startActivity(new Intent(ASDTestActivity.this, ConfigurationActivity.class));
             return true;
         });
 
@@ -112,7 +112,7 @@ public class TestActivity extends AppCompatActivity {
             }
 
             if (!error) {
-                ProgressDialog progressDialog = new ProgressDialog(TestActivity.this);
+                ProgressDialog progressDialog = new ProgressDialog(ASDTestActivity.this);
                 String path = "asdtest";
                 RestClient.get(path, null, params, new JsonHttpResponseHandler() {
                     @Override
@@ -122,7 +122,7 @@ public class TestActivity extends AppCompatActivity {
                         progressDialog.setMessage(getString(R.string.please_wait));
                         progressDialog.show();
 
-                        Toast.makeText(TestActivity.this, RestClient.getBaseUrl() + path, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ASDTestActivity.this, RestClient.getBaseUrl() + path, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -130,7 +130,7 @@ public class TestActivity extends AppCompatActivity {
                         super.onSuccess(statusCode, headers, response);
 
                         progressDialog.dismiss();
-                        Toast.makeText(TestActivity.this,
+                        Toast.makeText(ASDTestActivity.this,
                                 (response != null) ? response : "No response from server",
                                 Toast.LENGTH_SHORT).show();
                         // parse and show the results
@@ -141,7 +141,7 @@ public class TestActivity extends AppCompatActivity {
                         super.onSuccess(statusCode, headers, response);
 
                         progressDialog.dismiss();
-                        Toast.makeText(TestActivity.this,
+                        Toast.makeText(ASDTestActivity.this,
                                 (response != null) ? response.toString() : "No response from server",
                                 Toast.LENGTH_SHORT).show();
                         // parse and show the results
@@ -152,7 +152,7 @@ public class TestActivity extends AppCompatActivity {
                         super.onFailure(statusCode, headers, response, throwable);
 
                         progressDialog.dismiss();
-                        Toast.makeText(TestActivity.this,
+                        Toast.makeText(ASDTestActivity.this,
                                 (response != null) ? response : "No response from server",
                                 Toast.LENGTH_SHORT).show();
                         // parse and show the results
@@ -163,7 +163,7 @@ public class TestActivity extends AppCompatActivity {
                         super.onFailure(statusCode, headers, throwable, response);
 
                         progressDialog.dismiss();
-                        Toast.makeText(TestActivity.this,
+                        Toast.makeText(ASDTestActivity.this,
                                 (response != null) ? response.toString() : "No response from server",
                                 Toast.LENGTH_SHORT).show();
                         // parse and show the results

@@ -5,6 +5,7 @@
     <string name="age">Age</string>
     <string name="agree">Agree</string>
     <string name="disagree">Disagree</string>
+    <string name="neutral">Neutral</string>
     <string name="q1">I often notice small sounds when others do not</string>
     <string name="q2">I usually concentrate more on the whole picture, rather than the small details</string>
     <string name="q3">I find it easy to do more than one thing at a time</string>
@@ -33,5 +34,14 @@
     <string name="debug_server_prompt">Set the URL for the server here</string>
     <string name="apply">Apply</string>
     <string name="used_app_before">Have you used this app to test the same subject before?</string>
+    <string name="q_anxiety">Rate the subject\'s anxiety levels on a scale of 1–10 (where higher number indicates the subject has higher levels of anxiety)</string>
+    <string name="q_hand_finger_mannerism">Subject is prone to making erratic movements with their fingers or hands</string>
+    <string name="q_imagination">Subject has a highly active imagination and/or creative tendencies</string>
+    <string name="q_echolalia">Subject exhibits the tendency to copy and repeat sounds and vocalizations made by others around them</string>
+    <string name="q_social_overtures">Subject tends to make positive social overtures (e.g. starting a conversation or negotiation)</string>
+    <string name="q_self_injurious_behavior">Subject has a tendency towards exhibiting self injurious behavior</string>
+    <string name="q_shared_enjoyment">Subject gains shared enjoyment in interactions with others</string>
+    <string name="q_tantrums">Subject tends to throw tantrums and exhibits aggression and disruptive behavior</string>
+    <string name="q_eye_contact">Subject tends to make unusual eye contact (either too much or no eye contact)</string>
 
 </resources>
