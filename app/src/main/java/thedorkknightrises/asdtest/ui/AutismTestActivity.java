@@ -40,6 +40,7 @@ public class AutismTestActivity extends AppCompatActivity {
             finish();
         } else {
             params.put("is_male", details.getInt("is_male"));
+            params.put("age_months", details.getInt("age") * 12);
         }
 
         q_hand_finger_mannerism_rg = findViewById(R.id.radio_group_q_hand_finger_mannerism);
@@ -100,7 +101,7 @@ public class AutismTestActivity extends AppCompatActivity {
 
                 selectedItem = findViewById(q_social_overtures_rg.getCheckedRadioButtonId());
                 params.put("A4_Score",
-                        (selectedItem.getText().toString().equals(getString(R.string.agree))) ? 2 : (selectedItem.getText().toString().equals(getString(R.string.neutral))) ? 1 : 0);
+                        (selectedItem.getText().toString().equals(getString(R.string.agree))) ? 0 : (selectedItem.getText().toString().equals(getString(R.string.neutral))) ? 1 : 2);
 
                 selectedItem = findViewById(q_self_injurious_behavior_rg.getCheckedRadioButtonId());
                 params.put("A5_Score",
@@ -108,7 +109,7 @@ public class AutismTestActivity extends AppCompatActivity {
 
                 selectedItem = findViewById(q_shared_enjoyment_rg.getCheckedRadioButtonId());
                 params.put("A6_Score",
-                        (selectedItem.getText().toString().equals(getString(R.string.agree))) ? 2 : (selectedItem.getText().toString().equals(getString(R.string.neutral))) ? 1 : 0);
+                        (selectedItem.getText().toString().equals(getString(R.string.agree))) ? 0 : (selectedItem.getText().toString().equals(getString(R.string.neutral))) ? 1 : 2);
 
                 selectedItem = findViewById(q_tantrums_rg.getCheckedRadioButtonId());
                 params.put("A7_Score",
