@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import thedorkknightrises.asdtest.R;
 import thedorkknightrises.asdtest.util.RestClient;
@@ -20,7 +23,10 @@ public class MainActivity extends AppCompatActivity {
             RestClient.setBaseUrl(preferences.getString("debug_server_url", ""));
         }
 
-        findViewById(R.id.startButton).setOnClickListener((view) -> startActivity(
+        findViewById(R.id.startButton).setOnClickListener((view) ->
+                startActivity(
                 new Intent(MainActivity.this, PersonalDetailsActivity.class)));
+
+
     }
 }
