@@ -24,12 +24,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/seekbar"
+        android:id="@+id/seek"
         android:layout_margin="12dp"
         android:paddingBottom="15dp">
 
         <SeekBar
-            android:id="@+id/anxiety_seekbar"
+            android:id="@+id/seekbar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -55,17 +55,20 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/agree" />
+            android:text="@string/agree"
+            android:id="@+id/agree"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/neutral" />
+            android:text="@string/neutral"
+            android:id="@+id/neutral"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/disagree" />
+            android:text="@string/disagree"
+            android:id="@+id/disagree"/>
 
     </RadioGroup>
 
