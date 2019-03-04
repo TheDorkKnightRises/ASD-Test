@@ -37,9 +37,7 @@ import thedorkknightrises.asdtest.util.RestClient;
 
 public class AutismTestActivity extends AppCompatActivity implements CardStack.CardEventListener {
 
-    RadioGroup q_hand_finger_mannerism_rg, q_imagination_rg, q_echolalia_rg, q_social_overtures_rg, q_self_injurious_behavior_rg, q_shared_enjoyment_rg, q_tantrums_rg, q_eye_contact_rg;
-    SeekBar q_anxiety_seekbar;
-    TextView anxiety_value;
+
     Bundle details;
     CardStackView cardStack;
     CardAdapter cardAdapter;
@@ -333,10 +331,11 @@ public class AutismTestActivity extends AppCompatActivity implements CardStack.C
                     else
                         Toast.makeText(AutismTestActivity.this, "Please enter a valid answer", Toast.LENGTH_SHORT).show();
 
-                    if(currentCard>=10)
+                    if(currentCard>=10) {
                         //TODO Call Submit Function and pass answers (HashMap)to it
                         Toast.makeText(AutismTestActivity.this, "Submitting...", Toast.LENGTH_SHORT).show();
-
+                        submitAnswers();
+                    }
                 }
                 else {
                     manager.setCanScrollHorizontal(true);
@@ -396,110 +395,110 @@ public class AutismTestActivity extends AppCompatActivity implements CardStack.C
     }
 
 
-//    void submitAnswers() {
-//
-//        params.put("A1_Score", answers.get(2));
-//        params.put("A2_Score", answers.get(3));
-//        params.put("A3_Score", answers.get(4));
-//        params.put("A4_Score", answers.get(5));
-//        params.put("A5_Score", answers.get(6));
-//        params.put("A6_Score", answers.get(7));
-//        params.put("A7_Score", answers.get(8));
-//        params.put("A8_Score", answers.get(9));
-//        params.put("anxiety", answers.get(1));
-//
-//
-//        //After Button click
-//
-//        ProgressDialog progressDialog = new ProgressDialog(AutismTestActivity.this);
-//        String path = "autismtest";
-//
-//        RestClient.post(path, null, params, new JsonHttpResponseHandler() {
-//            @Override
-//            public void onStart() {
-//                super.onStart();
-//                progressDialog.setCancelable(false);
-//                progressDialog.setMessage(getString(R.string.please_wait));
-//                progressDialog.show();
-//            }
-//
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, String response) {
-//                progressDialog.dismiss();
-//                if (response == null) {
-//                    Toast.makeText(AutismTestActivity.this,
-//                            "No response from server",
-//                            Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                final TextView message = new TextView(AutismTestActivity.this);
-//                final SpannableString s =
-//                        new SpannableString((response.equals("true")) ? getText(R.string.autism_positive) : (response.equals("false")) ? getText(R.string.autism_negative) : response);
-//                Linkify.addLinks(s, Linkify.WEB_URLS);
-//                message.setText(s);
-//                message.setPadding(32, 32, 32, 32);
-//                message.setMovementMethod(LinkMovementMethod.getInstance());
-//
-//                AlertDialog.Builder alert = new AlertDialog.Builder(AutismTestActivity.this)
-//                        .setView(message)
-//                        .setNegativeButton(R.string.exit, (dialog, which) -> {
-//                            finishAffinity();
-//                        })
-//                        .setCancelable(false);
-//
-//                if (response.equals("true")) {
-//                    alert.show();
-//                } else {
-//                    alert.setPositiveButton(R.string.cont, (dialog, which) -> {
-//                        Intent intent = new Intent(AutismTestActivity.this, ASDTestActivity.class);
-//                        intent.putExtras(details);
-//                        startActivity(intent);
-//                    }).show();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, String response, Throwable throwable) {
-//                progressDialog.dismiss();
-//                if (response == null) {
-//                    Toast.makeText(AutismTestActivity.this,
-//                            "No response from server",
-//                            Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                final TextView message = new TextView(AutismTestActivity.this);
-//                final SpannableString s =
-//                        new SpannableString((response.equals("true")) ? getText(R.string.autism_positive) : (response.equals("false")) ? getText(R.string.autism_negative) : response);
-//                Linkify.addLinks(s, Linkify.WEB_URLS);
-//                message.setText(s);
-//                message.setPadding(32, 32, 32, 32);
-//                message.setMovementMethod(LinkMovementMethod.getInstance());
-//
-//                AlertDialog.Builder alert = new AlertDialog.Builder(AutismTestActivity.this)
-//                        .setView(message)
-//                        .setNegativeButton(R.string.exit, (dialog, which) -> {
-//                            finishAffinity();
-//                        })
-//                        .setCancelable(false);
-//
-//                if (response.equals("true")) {
-//                    alert.show();
-//                } else {
-//                    alert.setPositiveButton(R.string.cont, (dialog, which) -> {
-//                        Intent intent = new Intent(AutismTestActivity.this, ASDTestActivity.class);
-//                        intent.putExtras(details);
-//                        startActivity(intent);
-//                    }).show();
-//                }
-//            }
-//
-//        });
-//
-////        startActivity(new Intent(AutismTestActivity.this, ConfigurationActivity.class));
-//    }
+    void submitAnswers() {
+
+        params.put("A1_Score", answers.get(2));
+        params.put("A2_Score", answers.get(3));
+        params.put("A3_Score", answers.get(4));
+        params.put("A4_Score", answers.get(5));
+        params.put("A5_Score", answers.get(6));
+        params.put("A6_Score", answers.get(7));
+        params.put("A7_Score", answers.get(8));
+        params.put("A8_Score", answers.get(9));
+        params.put("anxiety", answers.get(1));
+
+
+        //After Button click
+
+        ProgressDialog progressDialog = new ProgressDialog(AutismTestActivity.this);
+        String path = "autismtest";
+
+        RestClient.post(path, null, params, new JsonHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                progressDialog.setCancelable(false);
+                progressDialog.setMessage(getString(R.string.please_wait));
+                progressDialog.show();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String response) {
+                progressDialog.dismiss();
+                if (response == null) {
+                    Toast.makeText(AutismTestActivity.this,
+                            "No response from server",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                final TextView message = new TextView(AutismTestActivity.this);
+                final SpannableString s =
+                        new SpannableString((response.equals("true")) ? getText(R.string.autism_positive) : (response.equals("false")) ? getText(R.string.autism_negative) : response);
+                Linkify.addLinks(s, Linkify.WEB_URLS);
+                message.setText(s);
+                message.setPadding(32, 32, 32, 32);
+                message.setMovementMethod(LinkMovementMethod.getInstance());
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(AutismTestActivity.this)
+                        .setView(message)
+                        .setNegativeButton(R.string.exit, (dialog, which) -> {
+                            finishAffinity();
+                        })
+                        .setCancelable(false);
+
+                if (response.equals("true")) {
+                    alert.show();
+                } else {
+                    alert.setPositiveButton(R.string.cont, (dialog, which) -> {
+                        Intent intent = new Intent(AutismTestActivity.this, ASDTestActivity.class);
+                        intent.putExtras(details);
+                        startActivity(intent);
+                    }).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String response, Throwable throwable) {
+                progressDialog.dismiss();
+                if (response == null) {
+                    Toast.makeText(AutismTestActivity.this,
+                            "No response from server",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                final TextView message = new TextView(AutismTestActivity.this);
+                final SpannableString s =
+                        new SpannableString((response.equals("true")) ? getText(R.string.autism_positive) : (response.equals("false")) ? getText(R.string.autism_negative) : response);
+                Linkify.addLinks(s, Linkify.WEB_URLS);
+                message.setText(s);
+                message.setPadding(32, 32, 32, 32);
+                message.setMovementMethod(LinkMovementMethod.getInstance());
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(AutismTestActivity.this)
+                        .setView(message)
+                        .setNegativeButton(R.string.exit, (dialog, which) -> {
+                            finishAffinity();
+                        })
+                        .setCancelable(false);
+
+                if (response.equals("true")) {
+                    alert.show();
+                } else {
+                    alert.setPositiveButton(R.string.cont, (dialog, which) -> {
+                        Intent intent = new Intent(AutismTestActivity.this, ASDTestActivity.class);
+                        intent.putExtras(details);
+                        startActivity(intent);
+                    }).show();
+                }
+            }
+
+        });
+
+//        startActivity(new Intent(AutismTestActivity.this, ConfigurationActivity.class));
+    }
 
 
 }
